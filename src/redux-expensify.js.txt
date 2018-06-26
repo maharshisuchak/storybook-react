@@ -1,0 +1,20 @@
+yarn add uuid@3.1.0 for create unique id
+
+for spread opertor use with object we need to add plugin in .babelrc
+
+https://babeljs.io/docs/plugins/transform-object-rest-spread/
+
+yarn add babel-plugin-transform-object-rest-spread@6.23.0
+
+
+in .babelrc 
+
+"plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
+]
+
+
+// timestamp (milliseconds)
+// January 1st 1970 (unix epoch)
+// 33400,10,-203

@@ -1,0 +1,159 @@
+add folders
+-> actions
+-> selectors
+-> reducers
+-> store
+
+3 rd video.
+hoc.js : higher order component
+
+4.Connecting Store and Component with React-Redux
+
+reference:
+https://github.com/reactjs/react-redux
+
+(i) <Provider store>: 
+    --> Provider Component -> we use this once at root of our app
+
+
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
+
+
+(ii) connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options]) 
+    --> for every single component that needs to connect to the reduxstore 
+
+create new HOC using the connect function provided by react-redux;
+
+instllation : 
+yarn add react-redux@5.0.
+
+5-Rendering Individual Expenses 
+
+rendeing on tho the expense list using expenselistitem
+
+6-Controlled Inputs for Filters 
+
+new file in component folder ExpenseListFilters.js
+
+<input type='text' value={props.filters.text} />
+--> if use as above we can not type into the input:
+--> if we use defaultValue : not update from the redux
+<input type='text' defaultValue={props.filters.text} />
+
+
+--> onChange handler we need to update store to take effect
+--> onDelete we need to call remove from the store action generator
+
+
+
+7-Dropdown for Picking SortBy.mp47-Dropdown for Picking SortBy.mp4
+
+
+8-Creating Expense Add-Edit Form 
+
+9-Setting up a Date Picker.mp4
+
+moment.js ---- 
+
+momentjs.com 
+https://github.com/airbnb/react-dates
+
+yarn add moment@2.18.1
+yarn add react-dates@12.7.0 react-addons-shallow-compare@15.6.0
+
+use moment  -> 
+
+import moment from 'moment';
+const now = moment();
+console.log(now);
+console.log(now.format());
+console.log(now.format('MMM Do, YYYY'));
+
+
+10-Wiring up Add Expense 
+11-Edit Expense page
+
+12-Redux Dev Tools
+
+google 'redux developer tools extension'
+
+https://github.com/zalmoxisus/redux-devtools-extension
+
+instllation guide :- chrome webstore
+
+we need to change come code and : where ??
+
+while creating store we need to make some twik:-) :- you can see 
+
+https://github.com/zalmoxisus/redux-devtools-extension -- under 1.With Redux  
+
+ const store = createStore(
+   reducer, /* preloadedState, */
+   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+ );
+
+
+ add green highlighted line in create store in configureStore.js
+
+
+in configureStore.js -- 
+
+before:-
+const store = createStore(
+        combineReducers({
+            expenses: expensesReducer,
+            filters: filtersReducer
+        })
+);
+
+after:-
+ const store = createStore(
+        combineReducers({
+            expenses: expensesReducer,
+            filters: filtersReducer
+        }),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+
+13-Filtering by Dates 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

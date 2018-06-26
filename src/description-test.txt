@@ -1,0 +1,85 @@
+jest framework : it is the best with react
+
+install and setup jest
+google  :  'jest testing'
+
+https://facebook.github.io/jest/
+
+yarn add jest@22.0.4
+
+
+set up jest in wathc mode 
+
+yarn test --watchAll
+    
+yarn test --watch ----> this is working as expected in my case , but if not then 
+
+yarn test -- --watch
+
+
+8-Snapshot Testing 
+
+snapshot testing:
+/*react test renderer : it allows us to render our components inside of just regular
+javascript code and then we can assert something  */
+
+// yarn add react-test-renderer@15.6.1
+yarn add react-test-renderer@16.0.0 
+
+1.test header compoent : when run test it will first create a snapshot , if we run test more times 
+then it will compare latest component and snapshot and if both are different then 
+it will give an error:(fail).
+
+so now if you want to keep changes in compoent , press 'u' to update snapshot
+
+
+
+9-Enzyme
+
+yarn add enzyme@3.0.0 enzyme-adapter-react-16@1.0.0 raf@3.3.2
+
+--adapter tell enzyme to install only version of react we want to test : this allows
+enzyme library to be smaller
+raf- request animation frame
+
+create setupTest.js and jest.config.json
+
+now run enzyme test using yarn test --watchAll
+
+test('should render Header correctly using enzyme', () => {
+    const wrapper = shallow(<Header />);
+    expect(wrapper).toMatchSnapshot();
+});
+
+it will create the snapshot and there is extra noise our there in page for enzyme library code,
+we don't want to see them:
+
+for that we have utility for this : enzyme to json
+yarn add enzyme-to-json@3.0.1
+
+--->>> 
+
+in our test file or test suit do this
+
+import toJSON from 'enzyme-to-json';
+
+test('should render Header correctly using enzyme', () => {
+    const wrapper = shallow(<Header />);
+    expect(toJSON(wrapper)).toMatchSnapshot();
+});
+
+we can set up enzyme toJSON work automatically in jest.config.json
+
+just-add this to test.Config.json
+
+"snapshotSerializers":[
+        "enzyme-to-json/serializer"
+]
+
+visit src/tests/components/Header.test.js file 
+
+
+testspies: -mocked function
+
+end ;
+

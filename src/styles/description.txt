@@ -1,0 +1,16 @@
+https://github.com/ReactTraining/react-router
+
+https://reacttraining.com/react-router/
+
+https://reacttraining.com/react-router/web/guides/philosophy
+
+
+yarn add react-router-native for native : 
+
+yarn add react-router-dom@4.2.2 for webapp : 
+
+
+import { BrowserRouter, Route } from 'react-router-dom';
+
+BrowserRouter:we use this once to create the new router
+Route : for every single page : path and what to do
